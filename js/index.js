@@ -1,8 +1,8 @@
 var context;
 var arr = new Array();
-var starCount = 800;
+var starCount = 1600;
 var rains = new Array();
-var rainCount = 20;
+var rainCount = 25;
 //初始化画布及context
 function init() {
   //获取canvas
@@ -38,12 +38,6 @@ var Star = function () {
     context.fillText(this.text, this.x, this.y);
   }
 }
-//画月亮
-function drawMoon() {
-  var moon = new Image();
-  moon.src = "./images/moon.jpg"
-  context.drawImage(moon, -5, -10);
-}
 //页面加载的时候
 window.onload = function () {
   init();
@@ -61,7 +55,6 @@ window.onload = function () {
     rain.draw();
     rains.push(rain);
   }
-  drawMoon(); //绘制月亮
   playStars(); //绘制闪动的星星
   playRains(); //绘制流星
 
@@ -174,7 +167,6 @@ var MeteorRain = function () {
 }
 //绘制流星
 function playRains() {
-
   for (var n = 0; n < rainCount; n++) {
     var rain = rains[n];
     rain.move(); //移动
